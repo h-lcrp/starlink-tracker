@@ -40,6 +40,12 @@ class SatSetting extends Component {
         })
     }
 
+    // showSatellite is a callback function
+    // it uses onShow to pass out the data
+    showSatellite = () => {
+        this.props.onShow(this.state);
+    }
+
     render() {
         return (
             <div className="sat-setting">
@@ -95,12 +101,11 @@ class SatSetting extends Component {
                             />
                         </div>
                     </div>
-
                     <div className="show-nearby">
                         <Button
                             className="show-nearby-btn"
                             size="large"
-                            onClick={this.showSatellite}
+                            onClick={ this.showSatellite }
                         >
                             Find Nearby Satellites
                         </Button>
