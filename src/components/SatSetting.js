@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { InputNumber } from 'antd';
+import { Button } from 'antd';
 
 class SatSetting extends Component {
     constructor(){
@@ -7,7 +8,8 @@ class SatSetting extends Component {
         this.state = {
             observerLat: 0,
             observerLong: 0,
-            observerAlt: 0
+            observerAlt: 0,
+            radius: 90
         }
     }
 
@@ -29,6 +31,12 @@ class SatSetting extends Component {
         console.log('value ', value)
         this.setState({
             observerAlt: value
+        })
+    }
+
+    onChangeRadius = (value) => {
+        this.setState({
+            radius: value
         })
     }
 
@@ -73,6 +81,31 @@ class SatSetting extends Component {
                             />
                         </div>
                     </div>
+
+                    <p className="setting-label">Restrictions</p>
+                    <div className="setting-list">
+                        <div className="list-item">
+                            <label>Search Radius </label>
+                            <InputNumber
+                                min={0}
+                                max={90}
+                                defaultValue={0}
+                                style={{margin: "0 2px"}}
+                                onChange={this.onChangeRadious}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="show-nearby">
+                        <Button
+                            className="show-nearby-btn"
+                            size="large"
+                            onClick={this.showSatellite}
+                        >
+                            Find Nearby Satellites
+                        </Button>
+                    </div>
+
                 </div>
             </div>
         );
