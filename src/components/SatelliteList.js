@@ -20,6 +20,8 @@ class SatelliteList extends Component {
                 >
                     Track on the map
                 </Button>
+
+                <p> total found: </p>
                 <hr/>
 
                 {
